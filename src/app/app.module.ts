@@ -12,6 +12,7 @@ import {HeaderComponent} from './header/header.component';
 import {TasksComponent} from './tasks/tasks.component';
 import {CardComponent} from './tasks/card/card.component';
 import {PaginatorComponent} from './tasks/paginator/paginator.component';
+import { CreateComponent } from './create/create.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {PaginatorComponent} from './tasks/paginator/paginator.component';
     HeaderComponent,
     TasksComponent,
     CardComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    CreateComponent
 
   ],
   imports: [
