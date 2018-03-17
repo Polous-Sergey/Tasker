@@ -21,6 +21,7 @@ export class DataProviderService {
             ' development groups within Apple', false, 'https://i.pinimg.com/736x/fd/75/c3/fd75c36728a2b3ed6156739255aa345d.jpg'),
     ];
 
-    constructor() {}
+    constructor() {
+    }
 
 }
