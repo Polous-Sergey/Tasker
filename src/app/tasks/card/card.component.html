@@ -1,13 +1,40 @@
 <div class="card" style="max-width: 30rem; margin: 10px">
     <img class="card-img-top" src="{{task.imgSrc}}"
          alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">{{task.userName}}</h5>
-        <h6>{{task.email}}</h6>
-        <p class="card-text">{{task.text}}</p>
+    <div class="row card-body">
+        <div class="col-6">
+            <h5 class="card-title">{{task.userName}}</h5>
+            <h6>{{task.email}}</h6>
+        </div>
+        <div class="col-6">
+            <div class="progress">
+                <div *ngIf="!task.complited" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">In progress
+                </div>
+                <div *ngIf="task.complited" class="progress-bar bg-success" role="progressbar"
+                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">Done
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <p class="card-text">{{task.text}}</p>
+        </div>
+
     </div>
-    <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+    <div class="row card-body" *ngIf="isAdmin">
+        <div class="col-6">
+            <a href="#" class="card-link">Edit</a>
+            <!--<a href="#" class="card-link">Save</a>-->
+        </div>
+        <div class="col-6 text-right" style="color: #007BFF; cursor: pointer;">
+            <a class="card-link dropdown-toggle" id="dropdownMenuLink"
+               data-toggle="dropdown">
+                Cange status
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">In progress</a>
+                <a class="dropdown-item" href="#">Done</a>
+            </div>
+        </div>
     </div>
 </div>

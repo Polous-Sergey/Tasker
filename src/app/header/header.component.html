@@ -1,26 +1,55 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" routerLink="/home">Tasker</a>
-  <a class="navbar-brand" routerLink="/create">Create</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/create">Create</a>
+        </li>
     </ul>
     <ul class="navbar-nav">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="user" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          User
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="modal" data-target="#LogInModal" *ngIf="!isAdmin" style="cursor: pointer">
+         Log in
         </a>
-        <div class="dropdown-menu" aria-labelledby="user">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+        <a class="nav-link" *ngIf="isAdmin" (click)="logOut()" style="cursor: pointer">
+          Log out
+        </a>
       </li>
     </ul>
   </div>
 </nav>
+
+
+<!-- Modal -->
+<div class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Log in</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="login" class="col-form-label">Login:</label>
+          <input type="text" class="form-control" id="login" [(ngModel)]="login">
+        </div>
+        <div class="form-group">
+          <label for="password" class="col-form-label">Password:</label>
+          <input type="password" class="form-control" id="password" [(ngModel)]="password">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="logIn()">Submit</button>
+      </div>
+
+    </div>
+  </div>
+</div>
