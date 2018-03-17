@@ -15,7 +15,7 @@ export class TasksComponent implements OnInit {
 
   constructor(private dataProviderService: DataProviderService,
               private request: RequestService) {
-
+    this.request.get();
   }
 
 

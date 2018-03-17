@@ -16,7 +16,7 @@ export class CardComponent implements OnInit {
   }
 
   changeStatus() {
-    this.task.status = !this.task.status;
+    this.task.status = this.task.status === 1 ? 0 : 1;
   }
 
   save() {

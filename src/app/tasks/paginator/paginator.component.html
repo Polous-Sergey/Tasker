@@ -1,4 +1,7 @@
-<nav aria-label="Page navigation example">
+<div class="row justify-content-between">
+  <div class="col-sm"></div>
+  <div class="col-12 col-md-4">
+
   <ul class="pagination justify-content-center">
     <li class="page-item" ngClass="{{curentPage <= 1 ? 'disabled' : '' }}">
       <a class="page-link"  (click)="prevPage()">Previous</a>
@@ -6,9 +9,36 @@
     <li class="page-item"
         (click)="setPage(page)"
         *ngFor="let page of pager"
-    ngClass="{{page === curentPage ? 'active' : ''}}"><a class="page-link" >{{page}}</a></li>
+        ngClass="{{page === curentPage ? 'active' : ''}}"><a class="page-link" >{{page}}</a></li>
     <li class="page-item" ngClass="{{curentPage >= pages ? 'disabled' : '' }}">
       <a class="page-link" (click)="nextPage()">Next</a>
     </li>
   </ul>
-</nav>
+  </div>
+
+
+<div class="row col-12 col-md-4 justify-content-center">
+  <div class="dropdown">
+    <button class="btn btn-light dropdown-toggle" type="button" id="sorteType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Sort type
+    </button>
+    <div class="dropdown-menu" aria-labelledby="sorteType">
+      <a class="dropdown-item" (click)="sortBy('id')">ID</a>
+      <a class="dropdown-item" (click)="sortBy('username')" >Username</a>
+      <a class="dropdown-item" (click)="sortBy('email')" >Email</a>
+      <a class="dropdown-item" (click)="sortBy('status')" >Status</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="btn btn-light dropdown-toggle" type="button" id="sorteBy" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Sort by
+    </button>
+    <div class="dropdown-menu" aria-labelledby="sorteBy">
+      <a class="dropdown-item" (click)="sortBy(null, 'asc')" >ASC</a>
+      <a class="dropdown-item"  (click)="sortBy(null, 'dsc')" >DSC</a>
+    </div>
+  </div>
+
+</div>
+</div>

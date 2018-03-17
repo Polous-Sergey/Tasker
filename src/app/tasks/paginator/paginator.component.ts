@@ -25,6 +25,10 @@ export class PaginatorComponent implements OnChanges {
 
   }
 
+  sortBy(field: string = null, direction: string = null) {
+    this.request.get(null, field, direction);
+  }
+
   setPage(page: number) {
     this.curentPage = page;
     this.request.get(this.curentPage);
