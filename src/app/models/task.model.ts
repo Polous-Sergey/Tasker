@@ -1,8 +1,9 @@
 export class TaskModel {
-    constructor(public userName: string,
+    constructor(public username: string,
                 public email: string,
+                public id: number,
                 public text: string,
-                public complited: boolean,
-                public imgSrc: string) {
+                public status: number,
+                public image_path: string) {
     }
 }

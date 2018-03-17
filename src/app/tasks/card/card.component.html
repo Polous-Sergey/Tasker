@@ -1,13 +1,25 @@
 <div class="card" style="max-width: 30rem; margin: 10px">
-    <img class="card-img-top" src="{{task.imgSrc}}"
-         alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">{{task.userName}}</h5>
-        <h6>{{task.email}}</h6>
-        <p class="card-text">{{task.text}}</p>
-    </div>
-    <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
-    </div>
+  <img
+    class="card-img-top" src="{{task.image_path}}"
+    alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Created by: {{task.username}}</h5>
+    <p>User email: {{task.email}}</p>
+    <h6>Task
+      <button
+        class="btn m-1"
+        [disabled]="disabled"
+        ngClass="{{task.status ? 'btn-success' : 'btn-warning'}}"
+        (click)="changeStatus()">{{task.status ? 'done' : 'in procces'}}
+      </button>
+    </h6>
+    <textarea class="form-control"
+              [(ngModel)]="task.text"
+              [disabled]="disabled"
+              style="border-color: antiquewhite;"></textarea>
+  </div>
+  <div class="card-body">
+    <a class="card-link" (click)="edit()">Edit</a>
+    <a class="card-link" *ngIf="!disabled" (click)="save()">Save</a>
+  </div>
 </div>

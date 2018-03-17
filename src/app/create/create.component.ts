@@ -59,16 +59,7 @@ export class CreateComponent implements OnInit {
     }
   }
 
-  getInf() {
-    this.request.get().subscribe(
-      (data) => {
-        console.log(data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+
 
   create() {
     const form = new FormData();
